@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Frank Dela Nutsukpuie</title>
+</head>
+<body>
+<script>
+(async () => {
+  const routes = {
+    '/':           '/pages/dashboard.html',
+    '/dashboard':  '/pages/dashboard.html',
+    '/about':      '/pages/about.html',
+    '/projects':   '/pages/projects.html',
+    '/skills':     '/pages/skills.html',
+    '/services':   '/pages/services.html',
+    '/contact':    '/pages/contact.html',
+  };
+
+  const path = location.pathname.replace(/\/$/, '') || '/';
+  const src  = routes[path] || routes['/'];
+
+  try {
+    const res  = await fetch(src);
+    if (!res.ok) throw new Error(res.status);
+    const html = await res.text();
+    document.open();
+    document.write(html);
+    document.close();
+  } catch {
+    location.replace(src);
+  }
+})();
+</script>
+</body>
+</html>

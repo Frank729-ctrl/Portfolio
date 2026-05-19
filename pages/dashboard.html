@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Frank Dela Nutsukpuie — Cybersecurity Professional</title>
+<meta name="description" content="Cybersecurity professional and CEH v12 certified from Ghana. Penetration testing, security audits, and secure software development." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<style>
+  /* ── Hero background ── */
+  .hero-bg {
+    position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+  }
+  .hero-bg::before {
+    content: "";
+    position: absolute; inset: -50%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.065) 1px, transparent 1px);
+    background-size: 32px 32px;
+    animation: driftGrid 18s linear infinite;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+  }
+  @keyframes driftGrid {
+    from { transform: translate(0, 0); }
+    to   { transform: translate(32px, 32px); }
+  }
+  .hero-bg::after {
+    content: ""; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 200px; background: linear-gradient(to top, var(--bg), transparent);
+  }
+  .hero-scan {
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0; animation: scanPass 5s ease-in-out 1.2s infinite; z-index: 0;
+  }
+  @keyframes scanPass {
+    0%   { top: 0%; opacity: 0; }
+    10%  { opacity: 0.5; }
+    90%  { opacity: 0.2; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* ── Hero entrance ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .hero__status  { animation: fadeUp 480ms ease 80ms  both; }
+  .hero h1       { animation: fadeUp 480ms ease 180ms both; }
+  .hero__sub     { animation: fadeUp 480ms ease 300ms both; }
+  .hero__actions { animation: fadeUp 480ms ease 400ms both; }
+  .hero__meta    { animation: fadeUp 480ms ease 260ms both; }
+  .scroll-hint   { animation: fadeUp 480ms ease 560ms both; }
+
+  /* ── Scroll hint ── */
+  .scroll-hint {
+    display: flex; align-items: center; gap: 8px; margin-top: 48px;
+    font-family: var(--font-mono); font-size: 11px; color: var(--fg-dim);
+  }
+  .scroll-hint__arrow {
+    width: 20px; height: 20px; border: 1px solid var(--border);
+    border-radius: 999px; display: grid; place-items: center;
+    animation: bounceArrow 1.8s ease infinite 1.2s;
+  }
+  @keyframes bounceArrow {
+    0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); }
+  }
+
+  /* ── Section spacing ── */
+  .land-section { padding: 100px 0; border-top: 1px solid var(--border); }
+  @media (max-width: 720px) { .land-section { padding: 64px 0; } }
+
+  /* ── Featured grid ── */
+  .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 900px) { .featured-grid { grid-template-columns: 1fr; } }
+
+  /* ── About snippet ── */
+  .about-snip { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 820px) { .about-snip { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* ── Skills snapshot ── */
+  .skills-snap {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); overflow: hidden;
+  }
+  @media (max-width: 720px) { .skills-snap { grid-template-columns: 1fr; } }
+  .skills-snap__group { background: var(--bg); padding: 22px 22px 24px; transition: background 150ms ease; }
+  .skills-snap__group:hover { background: var(--bg-elev); }
+  .skills-snap__group h4 {
+    font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--fg-dim); font-weight: 500; margin: 0 0 14px;
+  }
+
+  /* ── Services teaser ── */
+  .services-teaser {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); overflow: hidden;
+  }
+  @media (max-width: 820px) { .services-teaser { grid-template-columns: 1fr; } }
+
+  /* ── Security badge on featured card ── */
+  .card[data-category*="security"] { border-color: rgba(0,200,150,0.2); }
+
+  /* ── CTA section ── */
+  .cta-full {
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: clamp(48px,7vw,88px) clamp(32px,6vw,72px);
+    background:
+      radial-gradient(100% 80% at 0% 0%, rgba(255,255,255,0.022), transparent 60%),
+      radial-gradient(80% 60% at 100% 100%, oklch(0.82 0.16 130 / 0.06), transparent 60%),
+      var(--bg);
+    text-align: center;
+  }
+  .cta-full h2 { margin: 0 0 16px; font-size: clamp(32px,5vw,56px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
+  .cta-full p  { color: var(--fg-muted); font-size: 16px; max-width: 44ch; margin: 0 auto 36px; line-height: 1.6; }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/" class="brand" aria-label="Frank Dela Nutsukpuie, home">
+      <img src="/FDN_Logo.svg" width="28" height="28" alt="FDN" style="border-radius:7px;display:block;" />
+      <span>Frank Dela Nutsukpuie</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="/skills">Skills</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <a class="nav__cta" href="/contact">
+        Get in touch
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg"></div>
+    <div class="hero-scan"></div>
+    <div class="container">
+      <div class="hero__grid">
+        <div style="position:relative;z-index:1;">
+          <div class="hero__status">
+            <span class="dot"></span>
+            CEH v12 certified &middot; Open to security roles worldwide
+          </div>
+          <h1 id="hero-title">
+            <span id="typedRole">Penetration tester</span><span class="typing-cursor" aria-hidden="true"></span><br />
+            &amp; developer from <span class="alt">Ghana.</span>
+          </h1>
+          <p class="hero__sub">
+            I&rsquo;m Frank &mdash; a cybersecurity professional and CS student at GCTU, CEH v12 certified.
+            I find vulnerabilities, exploit systems in controlled environments, and build secure platforms
+            that hold up under attack. <strong style="color:var(--fg);">Security isn&rsquo;t just what I study &mdash; it&rsquo;s how I think.</strong>
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/projects">
+              View work
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="/services">Hire me for a pentest</a>
+            <a class="btn btn--ghost" href="/Frank_Dela_Resume.pdf" download>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10"/></svg>
+              Resume
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--fg-dim);margin-left:2px;">PDF</span>
+            </a>
+          </div>
+          <div class="scroll-hint">
+            <div class="scroll-hint__arrow">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 2v6M2 6l3 3 3-3"/></svg>
+            </div>
+            Scroll to explore
+          </div>
+        </div>
+
+        <dl class="hero__meta" aria-label="At a glance" style="position:relative;z-index:1;">
+          <div>
+            <dt>Certification</dt>
+            <dd>CEH v12 &mdash; EC-Council <small>Jun 2026</small></dd>
+          </div>
+          <div>
+            <dt>Specialisation</dt>
+            <dd>Penetration testing <small>Web · Network · Wireless</small></dd>
+          </div>
+          <div>
+            <dt>Education</dt>
+            <dd>BSc CS &mdash; GCTU <small>Expected 2026</small></dd>
+          </div>
+          <div>
+            <dt>Based in</dt>
+            <dd>Accra, Ghana <small>Open worldwide</small></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ABOUT SNIPPET ════════ -->
+  <div class="land-section">
+    <div class="container">
+      <div class="about-snip">
+        <div>
+          <span class="eyebrow">About me</span>
+          <h2 style="margin:14px 0 20px;font-size:clamp(26px,3.2vw,38px);font-weight:500;letter-spacing:-0.02em;line-height:1.1;">
+            I break things to understand them.<br />Then I build them better.
+          </h2>
+          <p style="color:var(--fg-muted);font-size:16.5px;line-height:1.65;max-width:52ch;margin:0 0 16px;">
+            Started in competitive music — trumpet, organ, staff notation — and brought the same pattern recognition
+            and discipline into cybersecurity. I&rsquo;m equally comfortable in a terminal running Metasploit
+            as I am writing a FastAPI backend.
+          </p>
+          <p style="color:var(--fg-muted);font-size:16.5px;line-height:1.65;max-width:52ch;margin:0 0 28px;">
+            Interned at the Directorate of Information Technology, Ghana Armed Forces. CEH v12 certified
+            through Educ8Africa Ghana. Building real tools, not just studying theory.
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn btn--ghost" href="/about">
+              Full story
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="/Frank_Dela_Resume.pdf" download>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10"/></svg>
+              Resume PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- Security-focused stats -->
+        <div>
+          <div class="stats-row" style="margin-top:0;">
+            <div class="stat-cell">
+              <span class="stat-num" data-target="41">0</span>
+              <span class="stat-label">CTF challenges</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-num" data-target="16">0</span>
+              <span class="stat-label">Security tools</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-num" data-target="20">0</span>
+              <span class="stat-label">Scanner modules</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-num" data-target="12">0</span>
+              <span class="stat-label">Attack domains</span>
+            </div>
+          </div>
+          <!-- Security domains -->
+          <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="interest-tag">🔍 Recon &amp; OSINT</span>
+            <span class="interest-tag">💣 Exploitation</span>
+            <span class="interest-tag">📡 Wireless attacks</span>
+            <span class="interest-tag">🧬 Malware analysis</span>
+            <span class="interest-tag">🕸️ Web app testing</span>
+            <span class="interest-tag">🛡️ Blue team</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ FEATURED SECURITY WORK ════════ -->
+  <div class="land-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Security projects</span>
+          <h2>Platforms built with attack &amp; defence in mind.</h2>
+        </div>
+        <a class="btn btn--ghost" href="/projects" style="flex-shrink:0;">
+          All 14 projects
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="featured-grid" id="featuredGrid">
+        <article class="card" data-category="security featured">
+          <div class="card__top"><span class="card__cat">Cybersecurity &middot; Blue Team</span><span class="card__year">2025&ndash;26</span></div>
+          <h3>HakDel</h3>
+          <p>Full-stack cybersecurity operations platform. 20-module site scanner (0&ndash;100 scored), OSINT suite, SSH CTF labs, incident tracker, CEH quiz, and AI-powered scan analysis via Claude API with real-time SSE streaming.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>FastAPI</span><span>PHP 8.1</span><span>MySQL</span><span>Claude API</span><span>Railway</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/hakdel" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="security featured">
+          <div class="card__top"><span class="card__cat">Cybersecurity &middot; Lab Series</span><span class="card__year">2025&ndash;26</span></div>
+          <h3>CEH Practical Lab Series</h3>
+          <p>41-challenge personal pentesting lab series. Tier 1 mirrors the real CEH exam format. Tier 2 covers advanced chained attacks — recon, exploitation, pivoting, steganography, and wireless across all major domains.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Metasploit</span><span>Nmap</span><span>Aircrack-ng</span><span>Hashcat</span><span>VMware</span></div>
+            <a class="card__link" href="#">Lab notes <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="security featured">
+          <div class="card__top"><span class="card__cat">Cybersecurity &middot; Assignment</span><span class="card__year">2026</span></div>
+          <h3>OverTheWire Bandit</h3>
+          <p>Completed Levels 0&ndash;10 as a formal graded CEH assignment under Educ8Africa Ghana. Applied SSH, Linux privilege inspection, and credential discovery. Delivered a structured professional pentesting report.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Linux</span><span>SSH</span><span>Bash</span><span>Parrot OS</span></div>
+            <a class="card__link" href="#">Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Secondary: dev projects callout -->
+      <div style="margin-top:18px;padding:18px 22px;border:1px solid var(--border);border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-dim);">// Also ships production web, mobile &amp; AI platforms — DelkaAI, Snafrate, PROMEX, Swypply &amp; more.</span>
+        <a href="/projects" style="font-size:13px;color:var(--fg-muted);display:inline-flex;align-items:center;gap:6px;transition:color 150ms ease;white-space:nowrap;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--fg-muted)'">
+          See all projects <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SECURITY SKILLS SNAPSHOT ════════ -->
+  <div class="land-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Security toolkit</span>
+          <h2>Tools I use in the field.</h2>
+        </div>
+        <a class="btn btn--ghost" href="/skills" style="flex-shrink:0;">
+          Full skill set
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="skills-snap">
+        <div class="skills-snap__group">
+          <h4>Offensive tools <span style="color:var(--fg-muted);">/ 16+</span></h4>
+          <div class="pills">
+            <span class="pill">Metasploit</span><span class="pill">Nmap</span>
+            <span class="pill">Burp Suite</span><span class="pill">Aircrack-ng</span>
+            <span class="pill">SQLMap</span><span class="pill">THC-Hydra</span>
+            <span class="pill">Hashcat</span><span class="pill">GoPhish</span>
+          </div>
+        </div>
+        <div class="skills-snap__group">
+          <h4>OSINT &amp; recon <span style="color:var(--fg-muted);">/ 06</span></h4>
+          <div class="pills">
+            <span class="pill">Maltego</span><span class="pill">Shodan</span>
+            <span class="pill">theHarvester</span><span class="pill">Wireshark</span>
+            <span class="pill">Ettercap</span><span class="pill">Ghidra</span>
+          </div>
+        </div>
+        <div class="skills-snap__group">
+          <h4>Attack domains <span style="color:var(--fg-muted);">/ 12+</span></h4>
+          <div class="pills">
+            <span class="pill">Penetration testing</span><span class="pill">OSINT &amp; recon</span>
+            <span class="pill">Privilege escalation</span><span class="pill">Wireless attacks</span>
+            <span class="pill">MITM / ARP spoofing</span><span class="pill">Social engineering</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:14px;font-family:var(--font-mono);font-size:11px;color:var(--fg-dim);">// Also codes in Python, PHP, JavaScript, Kotlin — all security tooling is backed by real dev ability.</p>
+    </div>
+  </div>
+
+  <!-- ════════ SECURITY SERVICES ════════ -->
+  <div class="land-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Security services</span>
+          <h2>How I can protect your systems.</h2>
+        </div>
+        <a class="btn btn--ghost" href="/services" style="flex-shrink:0;">
+          All services
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="services-teaser">
+        <div class="service__card" onclick="location.href='pages/services.html'">
+          <div class="service__icon">🔐</div>
+          <h3>Penetration Testing</h3>
+          <p>Web app, network, and wireless security assessments with a structured professional report, severity ratings, and step-by-step remediation.</p>
+          <div class="service__tags">
+            <span class="service__tag">Web App</span>
+            <span class="service__tag">Network</span>
+            <span class="service__tag">Wireless</span>
+            <span class="service__tag">Full Report</span>
+          </div>
+        </div>
+
+        <div class="service__card" onclick="location.href='pages/services.html'">
+          <div class="service__icon">🛡️</div>
+          <h3>Security Audit</h3>
+          <p>Code review and application assessment against OWASP Top 10. Covers misconfigured headers, exposed endpoints, weak auth, and insecure data handling.</p>
+          <div class="service__tags">
+            <span class="service__tag">OWASP Top 10</span>
+            <span class="service__tag">Code Review</span>
+            <span class="service__tag">Auth Audit</span>
+            <span class="service__tag">Headers</span>
+          </div>
+        </div>
+
+        <div class="service__card" onclick="location.href='pages/services.html'">
+          <div class="service__icon">🌐</div>
+          <h3>Secure Development</h3>
+          <p>Full-stack platforms built security-first — proper auth, rate limiting, input validation, and encrypted storage from line one. Not bolted on after.</p>
+          <div class="service__tags">
+            <span class="service__tag">FastAPI</span>
+            <span class="service__tag">Laravel</span>
+            <span class="service__tag">Argon2id</span>
+            <span class="service__tag">JWT Auth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ CTA ════════ -->
+  <div class="land-section">
+    <div class="container">
+      <div class="cta-full reveal">
+        <h2>Ready to test your defences?</h2>
+        <p>
+          Available for penetration testing engagements, security audits, and secure development work
+          &mdash; remotely or in Accra, Ghana.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn--primary" href="/contact">
+            Get in touch
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="mailto:delefrank393@gmail.com?subject=Security Engagement Enquiry">Email directly</a>
+          <a class="btn btn--ghost" href="https://github.com/Frank729-ctrl" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container footer__inner">
+    <div class="meta"><span class="dot"></span> Available &middot; Accra, Ghana</div>
+    <div>&copy; 2026 Frank Dela Nutsukpuie.</div>
+    <div class="footer__links">
+      <a href="/Frank_Dela_Resume.pdf" download>Resume</a>
+      <a href="https://linkedin.com/in/frank-nutsukpuie" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:delefrank393@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  // Typing: security roles first, dev secondary
+  const roles = ['Penetration tester', 'CEH certified', 'Blue team defender', 'Security researcher', 'Full-stack developer'];
+  const el = document.getElementById('typedRole');
+  let idx = 0, char = 0, del = false;
+  function type() {
+    const cur = roles[idx];
+    el.textContent = cur.slice(0, del ? --char : ++char);
+    let d = del ? 50 : 85;
+    if (!del && char === cur.length)      { d = 2000; del = true; }
+    else if (del && char === 0)            { del = false; idx = (idx + 1) % roles.length; d = 260; }
+    setTimeout(type, d);
+  }
+  setTimeout(type, 2000);
+
+  staggerCards('#featuredGrid .card', 80);
+</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects — Frank Dela Nutsukpuie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/" class="brand" aria-label="Frank Dela Nutsukpuie, home">
+      <img src="/FDN_Logo.svg" width="28" height="28" alt="FDN" style="border-radius:7px;display:block;" />
+      <span>Frank Dela Nutsukpuie</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="/skills">Skills</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <a class="nav__cta" href="/contact">
+        Get in touch
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">02 — Projects</div>
+      <h1>Things I&rsquo;ve built,<br /><span style="color:var(--fg-dim);font-weight:400;">shipped, and secured.</span></h1>
+      <p>Production platforms and security projects. Search or filter by category to find what you&rsquo;re looking for.</p>
+    </div>
+  </div>
+
+  <section style="border-top:1px solid var(--border);padding:64px 0;">
+    <div class="container">
+      <!-- Search -->
+      <div class="search-wrap" style="max-width:420px;margin-bottom:20px;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4"/><path d="M11 11l2.5 2.5"/></svg>
+        <input class="search-input" id="searchInput" type="search" placeholder="Search projects…" aria-label="Search projects" autocomplete="off" />
+      </div>
+
+      <!-- Filters -->
+      <div class="filters" role="toolbar" aria-label="Filter projects" id="filters">
+        <button class="chip" data-filter="all" aria-pressed="true">All <span class="count" data-count="all"></span></button>
+        <button class="chip" data-filter="featured" aria-pressed="false">&#9733; Featured <span class="count" data-count="featured"></span></button>
+        <button class="chip" data-filter="security" aria-pressed="false">Cybersecurity <span class="count" data-count="security"></span></button>
+        <button class="chip" data-filter="web" aria-pressed="false">Web &amp; API <span class="count" data-count="web"></span></button>
+        <button class="chip" data-filter="mobile" aria-pressed="false">Mobile <span class="count" data-count="mobile"></span></button>
+        <button class="chip" data-filter="ai" aria-pressed="false">AI <span class="count" data-count="ai"></span></button>
+      </div>
+
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--fg-dim);margin-bottom:18px;">
+        Showing <span id="visibleCount">14</span> of <span id="totalCount">14</span> projects
+      </div>
+
+      <div class="projects" id="projects-grid">
+        <article class="card" data-category="security featured">
+          <div class="card__top"><span class="card__cat">Cybersecurity &middot; Blue Team</span><span class="card__year">2025&ndash;26</span></div>
+          <h3>HakDel</h3>
+          <p>Full-stack cybersecurity operations platform. 20-module site scanner (0&ndash;100 scored), OSINT suite, SSH CTF labs, incident tracker, CEH quiz, and AI-powered scan interpretation via Claude API with real-time SSE streaming.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Python</span><span>FastAPI</span><span>PHP 8.1</span><span>MySQL</span><span>Railway</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/hakdel" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="ai featured">
+          <div class="card__top"><span class="card__cat">AI &middot; API Platform</span><span class="card__year">2025&ndash;26</span></div>
+          <h3>DelkaAI</h3>
+          <p>Self-hosted AI services platform with multi-provider LLM routing (Groq, Gemini, Cerebras, Ollama, NVIDIA NIM, Cohere), dual API key system, Argon2id security, and 84%+ test coverage across 126 passing tests.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>FastAPI</span><span>Groq</span><span>Gemini</span><span>Ollama</span><span>PostgreSQL</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web ai featured">
+          <div class="card__top"><span class="card__cat">Web &middot; Marketplace</span><span class="card__year">2025&ndash;26</span></div>
+          <h3>Snafrate</h3>
+          <p>Ghana&ndash;China import marketplace. Multi-role platform (buyer, supplier, admin) with escrow, Trust Score engine (0&ndash;1000), Capital Loop credits, Shorts feed, supplier subscription tiers, dispute system, and full i18n across 13 languages.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>PHP MVC</span><span>React 18</span><span>MySQL</span><span>Paystack</span><span>Airwallex</span><span>Cloudflare R2</span></div>
+            <a class="card__link" href="#">Private <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web featured">
+          <div class="card__top"><span class="card__cat">Web &middot; Gov Client</span><span class="card__year">2025</span></div>
+          <h3>PROMEX</h3>
+          <p>Promotional Exam Management System for a military/government client. Four user roles, PDF result downloads, bulk CSV/Excel import, and a two-step student matching flow.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Laravel 12</span><span>Tailwind</span><span>Alpine.js</span><span>DomPDF</span></div>
+            <a class="card__link" href="#">Private <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="mobile featured">
+          <div class="card__top"><span class="card__cat">Mobile &middot; Ghana</span><span class="card__year">2025&ndash;26</span></div>
+          <h3>Swypply</h3>
+          <p>Ghana-focused job application mobile app with a bot-first architecture. Playwright-powered scrapers handle automated job submission. Supabase/PostgreSQL backend on Railway.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>React Native</span><span>Expo</span><span>Zustand</span><span>Playwright</span><span>Supabase</span></div>
+            <a class="card__link" href="#">Private <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="security featured">
+          <div class="card__top"><span class="card__cat">Cybersecurity &middot; Lab</span><span class="card__year">2025&ndash;26</span></div>
+          <h3>CEH Practical Lab Series</h3>
+          <p>41-challenge personal pentesting lab series. Tier 1 mirrors real CEH exam format. Tier 2 covers advanced chained attacks across all major domains — recon, exploitation, pivoting, steganography.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Metasploit</span><span>Nmap</span><span>Aircrack-ng</span><span>Hashcat</span><span>VMware</span></div>
+            <a class="card__link" href="#">Lab notes <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web">
+          <div class="card__top"><span class="card__cat">Web &middot; E-Commerce</span><span class="card__year">2025</span></div>
+          <h3>Plugged Imports</h3>
+          <p>B2C China-to-Ghana import platform. Shared container ordering system, monthly order closing, admin panel, Paystack payment verification, and automated email confirmations via Resend.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>PHP</span><span>Paystack</span><span>MySQL</span><span>Cloudinary</span><span>Vercel</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/pluggedimports" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="security">
+          <div class="card__top"><span class="card__cat">Cybersecurity &middot; Assignment</span><span class="card__year">2026</span></div>
+          <h3>OverTheWire Bandit</h3>
+          <p>Completed Levels 0&ndash;10 as a formal graded CEH assignment under Educ8Africa Ghana. Applied SSH, Linux privilege inspection, and credential discovery. Delivered a structured professional pentesting report.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Linux</span><span>SSH</span><span>Bash</span><span>Parrot OS</span></div>
+            <a class="card__link" href="#">Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="ai web">
+          <div class="card__top"><span class="card__cat">Python &middot; AI / Drone</span><span class="card__year">2025</span></div>
+          <h3>Military Ops App</h3>
+          <p>Drone operations platform built for the Soko Aerial Robotics project. Covers motion handling and AI detection logic in Python. Repository is a partial recovery — original files were lost in a system crash.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Python</span><span>AI Detection</span><span>Drone / Motion</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/military_ops_app" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web">
+          <div class="card__top"><span class="card__cat">Web &middot; Gov / Internship</span><span class="card__year">2025</span></div>
+          <h3>Application Management System</h3>
+          <p>Internal application management system built during my IT internship at the Directorate of Information Technology, Ghana Armed Forces (Burma Camp). Built independently.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/application-management-system" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web">
+          <div class="card__top"><span class="card__cat">JavaScript &middot; Mini Project</span><span class="card__year">2024</span></div>
+          <h3>Random Quotes Generator</h3>
+          <p>A JavaScript web application that generates and displays random quotes. A clean frontend mini-project built to practise DOM manipulation and JavaScript fundamentals.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/Random-Quotes-Generator" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web">
+          <div class="card__top"><span class="card__cat">Python &middot; Mini Project</span><span class="card__year">2024</span></div>
+          <h3>Event Tracker</h3>
+          <p>A Python event tracking utility that records start and end times for named events and computes durations. Built as a clean OOP exercise using datetime and class-based design.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Python</span><span>OOP</span><span>datetime</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/Event-Tracking-" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web">
+          <div class="card__top"><span class="card__cat">Python &middot; Mini Project</span><span class="card__year">2024</span></div>
+          <h3>Guessing Game</h3>
+          <p>A Python CLI number guessing game with random number generation, input validation, replay logic, and user feedback.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Python</span><span>random</span><span>CLI</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/Guessing-Game" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card" data-category="mobile">
+          <div class="card__top"><span class="card__cat">Mobile &middot; Android</span><span class="card__year">2024</span></div>
+          <h3>Kotlin Calculator</h3>
+          <p>A native Android calculator app built in Kotlin. Covers arithmetic operations, input handling, and Android UI fundamentals.</p>
+          <div class="card__foot">
+            <div class="card__stack"><span>Kotlin</span><span>Android Studio</span><span>XML</span></div>
+            <a class="card__link" href="https://github.com/Frank729-ctrl/Kotlin-Calculator" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <div id="noResults" style="display:none;grid-column:1/-1;padding:64px 0;text-align:center;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--fg-dim)" stroke-width="1.4"><circle cx="18" cy="18" r="10"/><path d="M26 26l7 7"/></svg>
+          <p style="font-family:var(--font-mono);font-size:13px;color:var(--fg-dim);margin:12px 0 0;">No projects match your search.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer__inner">
+    <div class="meta"><span class="dot"></span> Available &middot; Accra, Ghana</div>
+    <div>&copy; 2026 Frank Dela Nutsukpuie.</div>
+    <div class="footer__links">
+      <a href="/Frank_Dela_Resume.pdf" download>Resume</a>
+      <a href="https://linkedin.com/in/frank-nutsukpuie" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:delefrank393@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  const filterBar    = document.getElementById('filters');
+  const grid         = document.getElementById('projects-grid');
+  const searchInput  = document.getElementById('searchInput');
+  const visibleCount = document.getElementById('visibleCount');
+  const totalCount   = document.getElementById('totalCount');
+  const noResults    = document.getElementById('noResults');
+  const cards        = [...grid.querySelectorAll('.card[data-category]')];
+  totalCount.textContent = cards.length;
+
+  const counts = { all: cards.length };
+  cards.forEach(c => c.dataset.category.split(' ').forEach(cat => { counts[cat] = (counts[cat] || 0) + 1; }));
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const k = el.dataset.count;
+    if (counts[k] != null) el.textContent = String(counts[k]).padStart(2, '0');
+  });
+
+  let activeFilter = 'all', searchQuery = '';
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const cats  = card.dataset.category.split(' ');
+      const matchF = activeFilter === 'all' || cats.includes(activeFilter);
+      const matchS = !searchQuery || card.textContent.toLowerCase().includes(searchQuery);
+      const show   = matchF && matchS;
+      card.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+    });
+    visibleCount.textContent = visible;
+    noResults.style.display  = visible === 0 ? 'block' : 'none';
+  }
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.chip');
+    if (!btn) return;
+    activeFilter = btn.dataset.filter;
+    filterBar.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === btn ? 'true' : 'false'));
+    applyFilters();
+  });
+  searchInput.addEventListener('input', () => { searchQuery = searchInput.value.trim().toLowerCase(); applyFilters(); });
+  staggerCards('.card[data-category]', 50);
+</script>
+</body>
+</html>

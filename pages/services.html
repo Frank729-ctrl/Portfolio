@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services — Frank Dela Nutsukpuie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<style>
+  .cta-banner {
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: clamp(32px,5vw,60px);
+    background: radial-gradient(100% 80% at 100% 100%, oklch(0.82 0.16 130 / 0.06), transparent 60%), var(--bg);
+    display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-top: 56px;
+  }
+  .cta-banner h3 { margin: 0 0 8px; font-size: clamp(22px,3vw,30px); font-weight: 500; letter-spacing: -0.02em; }
+  .cta-banner p  { margin: 0; color: var(--fg-muted); font-size: 15px; max-width: 44ch; }
+  .cta-actions   { display: flex; gap: 12px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/" class="brand" aria-label="Frank Dela Nutsukpuie, home">
+      <img src="/FDN_Logo.svg" width="28" height="28" alt="FDN" style="border-radius:7px;display:block;" />
+      <span>Frank Dela Nutsukpuie</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="/skills">Skills</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <a class="nav__cta" href="/contact">
+        Get in touch
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">04 — Services</div>
+      <h1>How I can<br /><span style="color:var(--fg-dim);font-weight:400;">help you.</span></h1>
+      <p>Available for freelance engagements, contract work, and consulting — remotely or in Accra.</p>
+    </div>
+  </div>
+
+  <section style="border-top:1px solid var(--border);padding:64px 0;">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">What I offer</span><h2>Six ways to work together.</h2></div>
+        <p>Click any service card to enquire.</p>
+      </div>
+      <div class="services__grid">
+        <div class="service__card reveal" onclick="location.href='mailto:delefrank393@gmail.com?subject=Penetration Testing Enquiry'">
+          <div class="service__icon">🔐</div><h3>Penetration Testing</h3>
+          <p>Web app, network, and wireless security assessments with a structured report, severity ratings, and remediation steps.</p>
+          <div class="service__tags"><span class="service__tag">Web App Pentest</span><span class="service__tag">Network Recon</span><span class="service__tag">Wireless Audit</span><span class="service__tag">Vulnerability Report</span></div>
+          <span class="service__cta">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </div>
+        <div class="service__card reveal reveal-delay-1" onclick="location.href='mailto:delefrank393@gmail.com?subject=Web Development Enquiry'">
+          <div class="service__icon">🌐</div><h3>Web Development</h3>
+          <p>Full-stack web platforms built and deployed from scratch — multi-role auth, payments, and APIs. Production-ready code, not prototypes.</p>
+          <div class="service__tags"><span class="service__tag">Laravel / PHP</span><span class="service__tag">FastAPI</span><span class="service__tag">React</span><span class="service__tag">MySQL / PostgreSQL</span></div>
+          <span class="service__cta">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </div>
+        <div class="service__card reveal reveal-delay-2" onclick="location.href='mailto:delefrank393@gmail.com?subject=Mobile Development Enquiry'">
+          <div class="service__icon">📱</div><h3>Mobile Development</h3>
+          <p>Cross-platform Android and iOS apps using React Native and Expo — clean architecture, real backend integration, built to scale.</p>
+          <div class="service__tags"><span class="service__tag">React Native</span><span class="service__tag">Expo</span><span class="service__tag">Kotlin / Android</span><span class="service__tag">Supabase</span></div>
+          <span class="service__cta">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </div>
+        <div class="service__card reveal" onclick="location.href='mailto:delefrank393@gmail.com?subject=AI Integration Enquiry'">
+          <div class="service__icon">🤖</div><h3>AI Integration</h3>
+          <p>LLM routing, prompt engineering, real-time streaming, and API key management — production-grade, into your product or from scratch.</p>
+          <div class="service__tags"><span class="service__tag">Claude API</span><span class="service__tag">Groq</span><span class="service__tag">Ollama</span><span class="service__tag">SSE Streaming</span></div>
+          <span class="service__cta">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </div>
+        <div class="service__card reveal reveal-delay-1" onclick="location.href='mailto:delefrank393@gmail.com?subject=Security Audit Enquiry'">
+          <div class="service__icon">🛡️</div><h3>Security Audit</h3>
+          <p>Code review and security assessment of existing web apps. OWASP Top 10, misconfigured headers, weak auth, and insecure data handling.</p>
+          <div class="service__tags"><span class="service__tag">OWASP Top 10</span><span class="service__tag">Code Review</span><span class="service__tag">Auth Audit</span><span class="service__tag">Header Analysis</span></div>
+          <span class="service__cta">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </div>
+        <div class="service__card reveal reveal-delay-2" onclick="location.href='mailto:delefrank393@gmail.com?subject=API Development Enquiry'">
+          <div class="service__icon">🔌</div><h3>API Development</h3>
+          <p>Clean, documented REST APIs with auth, rate limiting, and error handling. Built with FastAPI or Laravel, documented with Swagger.</p>
+          <div class="service__tags"><span class="service__tag">FastAPI</span><span class="service__tag">Laravel</span><span class="service__tag">JWT Auth</span><span class="service__tag">Swagger / OpenAPI</span></div>
+          <span class="service__cta">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section style="border-top:1px solid var(--border);padding:80px 0;">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">How I work</span><h2>My process.</h2></div><p>Every engagement follows the same structured process.</p></div>
+      <div class="process-steps">
+        <div class="process-step reveal"><div class="step-num">01</div><h4>Discovery</h4><p>We talk scope, goals, and constraints. You get a clear proposal within 48 hours.</p></div>
+        <div class="process-step reveal reveal-delay-1"><div class="step-num">02</div><h4>Execution</h4><p>Focused sprints with regular updates. Code is versioned, tested, and documented from day one.</p></div>
+        <div class="process-step reveal reveal-delay-2"><div class="step-num">03</div><h4>Delivery</h4><p>Working software or a structured report. Deployments handled. Documentation included.</p></div>
+        <div class="process-step reveal reveal-delay-3"><div class="step-num">04</div><h4>Support</h4><p>Post-delivery support window for bugs and questions. Retainers available for ongoing work.</p></div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section-head" style="margin-top:64px;"><div><span class="eyebrow">Common questions</span><h2>FAQ.</h2></div></div>
+      <div class="faq" role="list">
+        <div class="faq__item" role="listitem">
+          <button class="faq__question">Do you work remotely? <span class="faq__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2v6M2 5h6"/></svg></span></button>
+          <div class="faq__answer">Yes — all work is done remotely. Based in Accra, Ghana but flexible on time zones and meeting schedules.</div>
+        </div>
+        <div class="faq__item" role="listitem">
+          <button class="faq__question">How long does a typical project take? <span class="faq__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2v6M2 5h6"/></svg></span></button>
+          <div class="faq__answer">Security audits: 3–7 days. Full-stack platforms: 4–10 weeks depending on features. I always give realistic timelines in the proposal — not padded ones.</div>
+        </div>
+        <div class="faq__item" role="listitem">
+          <button class="faq__question">Do you sign NDAs? <span class="faq__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2v6M2 5h6"/></svg></span></button>
+          <div class="faq__answer">Yes. NDA / confidentiality agreements are standard for security engagements and private projects. Many of my projects are private repos for exactly this reason.</div>
+        </div>
+        <div class="faq__item" role="listitem">
+          <button class="faq__question">What payment methods do you accept? <span class="faq__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2v6M2 5h6"/></svg></span></button>
+          <div class="faq__answer">Mobile money (MTN, Telecel), bank transfer, and international transfers via Wise. Larger projects require 40% deposit before work begins.</div>
+        </div>
+        <div class="faq__item" role="listitem">
+          <button class="faq__question">Can you work within an existing codebase? <span class="faq__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2v6M2 5h6"/></svg></span></button>
+          <div class="faq__answer">Yes — and I'll tell you honestly if I see structural issues. I won't bolt features onto a broken foundation without flagging the risks.</div>
+        </div>
+      </div>
+
+      <div class="cta-banner reveal">
+        <div><h3>Ready to start?</h3><p>Tell me what you're building and I'll come back with a clear proposal.</p></div>
+        <div class="cta-actions">
+          <a class="btn btn--primary" href="/contact">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn--ghost" href="mailto:delefrank393@gmail.com">Email directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer__inner">
+    <div class="meta"><span class="dot"></span> Available &middot; Accra, Ghana</div>
+    <div>&copy; 2026 Frank Dela Nutsukpuie.</div>
+    <div class="footer__links">
+      <a href="/Frank_Dela_Resume.pdf" download>Resume</a>
+      <a href="https://linkedin.com/in/frank-nutsukpuie" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:delefrank393@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  document.querySelectorAll('.faq__question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq__item');
+      const wasOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('is-open'));
+      if (!wasOpen) item.classList.add('is-open');
+    });
+  });
+</script>
+</body>
+</html>

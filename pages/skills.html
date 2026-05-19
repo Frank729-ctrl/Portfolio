@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skills — Frank Dela Nutsukpuie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<style>
+  .skill-search-wrap { position: relative; max-width: 360px; margin-bottom: 24px; }
+  .skill-search-wrap svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; color: var(--fg-dim); pointer-events: none; }
+  .skill-search-input { width: 100%; padding: 10px 14px 10px 40px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); color: var(--fg); font-family: var(--font-sans); font-size: 13.5px; outline: none; transition: border-color 150ms ease; }
+  .skill-search-input::placeholder { color: var(--fg-dim); }
+  .skill-search-input:focus { border-color: var(--border-strong); }
+  .pill.is-match { border-color: var(--accent); background: var(--accent-dim); color: var(--fg); }
+  .pill.is-dim   { opacity: 0.28; }
+  @keyframes pillIn { from { opacity: 0; transform: scale(0.88) translateY(4px); } to { opacity: 1; transform: none; } }
+  .pill { animation: pillIn 300ms ease both; }
+  .skills-summary { display: flex; flex-wrap: wrap; gap: 28px; margin-bottom: 40px; }
+  .skills-summary__item { display: flex; flex-direction: column; gap: 4px; }
+  .skills-summary__num { font-size: 32px; font-weight: 600; letter-spacing: -0.03em; color: var(--fg); line-height: 1; }
+  .skills-summary__label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--fg-dim); margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/" class="brand" aria-label="Frank Dela Nutsukpuie, home">
+      <img src="/FDN_Logo.svg" width="28" height="28" alt="FDN" style="border-radius:7px;display:block;" />
+      <span>Frank Dela Nutsukpuie</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="/skills">Skills</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <a class="nav__cta" href="/contact">
+        Get in touch
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">03 — Skills</div>
+      <h1>The arsenal,<br /><span style="color:var(--fg-dim);font-weight:400;">used in the field.</span></h1>
+      <p>Security tools I run on real engagements. Languages and frameworks I ship production code in. Listed only if I&rsquo;d stake a pentest report on them.</p>
+    </div>
+  </div>
+
+  <section style="border-top:1px solid var(--border);padding:64px 0;">
+    <div class="container">
+      <div class="skills-summary">
+        <div class="skills-summary__item"><span class="skills-summary__num">6</span><span class="skills-summary__label">Languages</span></div>
+        <div class="skills-summary__item"><span class="skills-summary__num">5</span><span class="skills-summary__label">Frameworks</span></div>
+        <div class="skills-summary__item"><span class="skills-summary__num">16+</span><span class="skills-summary__label">Security tools</span></div>
+        <div class="skills-summary__item"><span class="skills-summary__num">12+</span><span class="skills-summary__label">Security concepts</span></div>
+        <div class="skills-summary__item"><span class="skills-summary__num">8</span><span class="skills-summary__label">DB &amp; cloud</span></div>
+        <div class="skills-summary__item"><span class="skills-summary__num">6</span><span class="skills-summary__label">AI platforms</span></div>
+      </div>
+
+      <div class="skill-search-wrap">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4"/><path d="M11 11l2.5 2.5"/></svg>
+        <input class="skill-search-input" id="skillSearch" type="search" placeholder="Search skills…" aria-label="Search skills" autocomplete="off" />
+      </div>
+
+      <div class="skill-tabs" role="toolbar" aria-label="Filter skills" id="skillTabs">
+        <button class="skill-tab" data-tab="all"        aria-pressed="false">All</button>
+        <button class="skill-tab" data-tab="lang"       aria-pressed="false">Languages</button>
+        <button class="skill-tab" data-tab="framework"  aria-pressed="false">Frameworks</button>
+        <button class="skill-tab" data-tab="sectool"    aria-pressed="true">Security Tools</button>
+        <button class="skill-tab" data-tab="secconcept" aria-pressed="false">Security Concepts</button>
+        <button class="skill-tab" data-tab="db"         aria-pressed="false">Databases &amp; Cloud</button>
+        <button class="skill-tab" data-tab="ai"         aria-pressed="false">AI &amp; LLMs</button>
+      </div>
+
+      <div class="skills" id="skillsGrid">
+        <div class="skills__group" data-tab="lang">
+          <h4>Languages <span class="num">/ 06</span></h4>
+          <div class="pills"><span class="pill">Python</span><span class="pill">PHP</span><span class="pill">JavaScript</span><span class="pill">C++</span><span class="pill">Kotlin / Android</span><span class="pill">HTML / CSS</span></div>
+        </div>
+        <div class="skills__group" data-tab="framework">
+          <h4>Frameworks <span class="num">/ 05</span></h4>
+          <div class="pills"><span class="pill">Laravel</span><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">React Native</span><span class="pill">Expo</span></div>
+        </div>
+        <div class="skills__group" data-tab="sectool">
+          <h4>Security tools <span class="num">/ 16+</span></h4>
+          <div class="pills"><span class="pill">Nmap</span><span class="pill">Metasploit</span><span class="pill">Wireshark</span><span class="pill">Burp Suite</span><span class="pill">Aircrack-ng</span><span class="pill">SQLMap</span><span class="pill">Hashcat</span><span class="pill">Shodan</span><span class="pill">Maltego</span><span class="pill">theHarvester</span><span class="pill">Volatility</span><span class="pill">Ghidra</span><span class="pill">John the Ripper</span><span class="pill">THC-Hydra</span><span class="pill">Ettercap</span><span class="pill">GoPhish</span></div>
+        </div>
+        <div class="skills__group" data-tab="secconcept">
+          <h4>Security concepts <span class="num">/ 12+</span></h4>
+          <div class="pills"><span class="pill">Penetration testing</span><span class="pill">Vulnerability assessment</span><span class="pill">OSINT &amp; recon</span><span class="pill">System hacking</span><span class="pill">Privilege escalation</span><span class="pill">Session hijacking</span><span class="pill">SQL injection / XSS</span><span class="pill">Wireless attacks</span><span class="pill">MITM / ARP spoofing</span><span class="pill">Malware analysis</span><span class="pill">IDS/IPS evasion</span><span class="pill">Social engineering</span></div>
+        </div>
+        <div class="skills__group" data-tab="db">
+          <h4>Databases &amp; platforms <span class="num">/ 08</span></h4>
+          <div class="pills"><span class="pill">MySQL</span><span class="pill">PostgreSQL</span><span class="pill">SQLite</span><span class="pill">Supabase</span><span class="pill">Railway</span><span class="pill">Vercel</span><span class="pill">Cloudinary</span><span class="pill">Paystack</span></div>
+        </div>
+        <div class="skills__group" data-tab="ai">
+          <h4>AI &amp; LLM <span class="num">/ 06</span></h4>
+          <div class="pills"><span class="pill">Anthropic Claude API</span><span class="pill">Groq</span><span class="pill">Ollama</span><span class="pill">Gemini</span><span class="pill">Cerebras</span><span class="pill">Cohere</span></div>
+        </div>
+      </div>
+
+      <p style="margin-top:18px;font-family:var(--font-mono);font-size:11px;color:var(--fg-dim);">// Hover any skill — all listed here are production-ready.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer__inner">
+    <div class="meta"><span class="dot"></span> Available &middot; Accra, Ghana</div>
+    <div>&copy; 2026 Frank Dela Nutsukpuie.</div>
+    <div class="footer__links">
+      <a href="/Frank_Dela_Resume.pdf" download>Resume</a>
+      <a href="https://linkedin.com/in/frank-nutsukpuie" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:delefrank393@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  const tabBar = document.getElementById('skillTabs');
+  const groups = [...document.querySelectorAll('.skills__group[data-tab]')];
+  const allPills = [...document.querySelectorAll('.pill')];
+  const searchEl = document.getElementById('skillSearch');
+  let activeTab = 'sectool', searchQuery = '';
+
+  function applyTabFilter() {
+    groups.forEach(g => g.classList.toggle('tab-hidden', activeTab !== 'all' && g.dataset.tab !== activeTab));
+  }
+  function applySearch() {
+    if (!searchQuery) { allPills.forEach(p => p.classList.remove('is-match', 'is-dim')); return; }
+    allPills.forEach(p => {
+      const match = p.textContent.toLowerCase().includes(searchQuery);
+      p.classList.toggle('is-match', match);
+      p.classList.toggle('is-dim', !match);
+    });
+  }
+  tabBar.addEventListener('click', e => {
+    const btn = e.target.closest('.skill-tab');
+    if (!btn) return;
+    activeTab = btn.dataset.tab;
+    tabBar.querySelectorAll('.skill-tab').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+    applyTabFilter();
+  });
+  searchEl.addEventListener('input', () => { searchQuery = searchEl.value.trim().toLowerCase(); applySearch(); });
+  allPills.forEach((p, i) => { p.style.animationDelay = `${i * 20}ms`; });
+  applyTabFilter();
+</script>
+</body>
+</html>

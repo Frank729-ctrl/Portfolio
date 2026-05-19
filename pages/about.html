@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — Frank Dela Nutsukpuie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<style>
+  .terminal { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 48px; }
+  .terminal__bar {
+    background: var(--bg-elev); padding: 10px 16px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .terminal__dot { width: 10px; height: 10px; border-radius: 999px; }
+  .terminal__dot:nth-child(1) { background: #ff5f56; }
+  .terminal__dot:nth-child(2) { background: #ffbd2e; }
+  .terminal__dot:nth-child(3) { background: #27c93f; }
+  .terminal__title { margin-left: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-dim); }
+  .terminal__body { padding: 20px 22px; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: var(--fg-muted); }
+  .terminal__line { display: flex; gap: 12px; }
+  .terminal__prompt { color: var(--accent); user-select: none; }
+  .terminal__body .kw  { color: var(--fg); }
+  .terminal__body .str { color: oklch(0.75 0.12 60); }
+  .terminal__body .num { color: oklch(0.8 0.12 200); }
+  .terminal__body .cmt { color: var(--fg-dim); }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/" class="brand" aria-label="Frank Dela Nutsukpuie, home">
+      <img src="/FDN_Logo.svg" width="28" height="28" alt="FDN" style="border-radius:7px;display:block;" />
+      <span>Frank Dela Nutsukpuie</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="/skills">Skills</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <a class="nav__cta" href="/contact">
+        Get in touch
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">01 — About</div>
+      <h1>Breaker. Builder.<br /><span style="color:var(--fg-dim);font-weight:400;">CEH certified.</span></h1>
+      <p>I find vulnerabilities before attackers do — and build the systems that hold up once they try.</p>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="container">
+    <div class="stats-row reveal">
+      <div class="stat-cell"><span class="stat-num" data-target="41">0</span><span class="stat-label">CTF challenges</span></div>
+      <div class="stat-cell"><span class="stat-num" data-target="16">0</span><span class="stat-label">Security tools</span></div>
+      <div class="stat-cell"><span class="stat-num" data-target="12">0</span><span class="stat-label">Attack domains</span></div>
+      <div class="stat-cell"><span class="stat-num" data-target="3">0</span><span class="stat-label">Years building</span></div>
+    </div>
+  </div>
+
+  <section style="border-top:1px solid var(--border);padding:80px 0;">
+    <div class="container">
+
+      <div class="terminal reveal">
+        <div class="terminal__bar">
+          <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+          <span class="terminal__title">frank@portfolio ~ $ cat profile.json</span>
+        </div>
+        <div class="terminal__body">
+          <div class="terminal__line"><span class="terminal__prompt">›</span><span>{</span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>&nbsp;&nbsp;<span class="kw">"name"</span>: <span class="str">"Frank Dela Nutsukpuie"</span>,</span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>&nbsp;&nbsp;<span class="kw">"role"</span>: <span class="str">"Penetration Tester &amp; Security Developer"</span>,</span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>&nbsp;&nbsp;<span class="kw">"location"</span>: <span class="str">"Accra, Ghana"</span>,</span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>&nbsp;&nbsp;<span class="kw">"education"</span>: <span class="str">"BSc Computer Science, GCTU (2026)"</span>,</span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>&nbsp;&nbsp;<span class="kw">"certification"</span>: <span class="str">"CEH v12, EC-Council (2026)"</span>,</span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>&nbsp;&nbsp;<span class="kw">"available"</span>: <span class="num">true</span>,</span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>&nbsp;&nbsp;<span class="cmt">// security isn't just what I study — it's how I think when I code</span></span></div>
+          <div class="terminal__line"><span class="terminal__prompt"> </span><span>}</span></div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div role="tablist" class="tabs" aria-label="About sections">
+        <button class="tab-btn" role="tab" aria-selected="true"  aria-controls="tab-story"     id="btn-story">Story</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-experience" id="btn-exp">Experience &amp; Education</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-interests"  id="btn-int">Interests</button>
+      </div>
+
+      <!-- Story -->
+      <div class="tab-panel is-active" id="tab-story" role="tabpanel" aria-labelledby="btn-story">
+        <div class="about__grid">
+          <div class="about__copy">
+            <p class="reveal">I&rsquo;m a Computer Science student from Aflao, Ghana — equally comfortable dissecting a network packet as I am shipping a production API at 2am. Security isn&rsquo;t just what I study — <strong>it&rsquo;s how I think when I code.</strong></p>
+            <p class="reveal reveal-delay-1">My internship at the Directorate of Information Technology, Ghana Armed Forces (Burma Camp) gave me a front-row seat to real-world infrastructure and operational security. I built an internal application management system from scratch there, independently.</p>
+            <p class="reveal reveal-delay-2">I also contributed to Soko Aerial Robotics, building a drone operations platform with AI detection logic. When the files were lost in a system crash, I recovered what I could and kept going.</p>
+            <p class="reveal reveal-delay-3">CEH v12 certified via Educ8Africa Ghana. Finishing my degree and shipping production platforms at the same time. The grind doesn&rsquo;t stop.</p>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <div class="about__avatar">
+              <img src="/FDN_Avatar.svg" alt="Frank Dela Nutsukpuie illustrated avatar" />
+            </div>
+            <p style="font-size:13px;color:var(--fg-dim);margin:12px 0 0;font-family:var(--font-mono);">// Aflao → Accra. Building what matters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="tab-panel" id="tab-experience" role="tabpanel" aria-labelledby="btn-exp">
+        <div class="timeline">
+          <div class="timeline__row reveal"><time>2022 &mdash; Now</time><div class="role">BSc Computer Science<small>GCTU, Accra &mdash; Expected 2026</small></div><span class="tag">Accra</span></div>
+          <div class="timeline__row reveal reveal-delay-1"><time>2025</time><div class="role">IT Intern &mdash; DIT<small>Ghana Armed Forces, Burma Camp</small></div><span class="tag">Gov</span></div>
+          <div class="timeline__row reveal reveal-delay-2"><time>2025</time><div class="role">Project Member<small>Soko Aerial Robotics — Drone AI</small></div><span class="tag">WebRTC</span></div>
+          <div class="timeline__row reveal reveal-delay-3"><time>2025 &mdash; 2026</time><div class="role">CEH v12 Certified<small>Educ8Africa Ghana / EC-Council</small></div><span class="tag">Jun 2026</span></div>
+          <div class="timeline__row reveal reveal-delay-4"><time>2025 &mdash; Now</time><div class="role">Freelance Developer<small>Web, Mobile, AI, Security — Remote</small></div><span class="tag">Worldwide</span></div>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="tab-panel" id="tab-interests" role="tabpanel" aria-labelledby="btn-int">
+        <p style="color:var(--fg-muted);font-size:16px;line-height:1.65;max-width:58ch;margin:0 0 28px;">
+          Outside of tech, I read music — staff notation and solfa. I play the trumpet and organ. I game.
+          Those things matter because they train the same muscle: pattern recognition, discipline, and knowing when to improvise.
+        </p>
+        <div class="about__interests">
+          <span class="interest-tag">🎺 Trumpet</span>
+          <span class="interest-tag">🎹 Organ</span>
+          <span class="interest-tag">🎵 Staff &amp; Solfa</span>
+          <span class="interest-tag">🎮 Gaming</span>
+          <span class="interest-tag">🔐 Cybersecurity</span>
+          <span class="interest-tag">🤖 AI / LLMs</span>
+          <span class="interest-tag">📱 Mobile Dev</span>
+          <span class="interest-tag">🌍 Open source</span>
+        </div>
+        <div style="margin-top:36px;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 26px;">
+          <p style="margin:0;color:var(--fg-muted);font-size:15px;line-height:1.7;max-width:56ch;">
+            <strong style="color:var(--fg);">Music →</strong> pattern recognition and discipline.
+            <strong style="color:var(--fg);">Gaming →</strong> strategic thinking under pressure.
+            <strong style="color:var(--fg);">Security →</strong> adversarial mindset. The skills cross-pollinate more than people expect.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer__inner">
+    <div class="meta"><span class="dot"></span> Available &middot; Accra, Ghana</div>
+    <div>&copy; 2026 Frank Dela Nutsukpuie.</div>
+    <div class="footer__links">
+      <a href="/Frank_Dela_Resume.pdf" download>Resume</a>
+      <a href="https://linkedin.com/in/frank-nutsukpuie" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:delefrank393@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+      panels.forEach(p => p.classList.remove('is-active'));
+      btn.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      panel.classList.add('is-active');
+      panel.querySelectorAll('.reveal:not(.is-visible)').forEach(el => setTimeout(() => el.classList.add('is-visible'), 50));
+    });
+  });
+  staggerCards('.timeline .timeline__row', 70);
+</script>
+</body>
+</html>
