@@ -696,6 +696,7 @@ section:first-of-type { border-top: 0; }
   border-color: var(--border-strong);
 }
 .skills__group.tab-hidden { display: none; }
+.skills.is-filtered { grid-template-columns: 1fr; }
 
 .skills {
   display: grid;

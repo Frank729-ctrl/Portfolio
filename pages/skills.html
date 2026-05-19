@@ -139,6 +139,7 @@
 
   function applyTabFilter() {
     groups.forEach(g => g.classList.toggle('tab-hidden', activeTab !== 'all' && g.dataset.tab !== activeTab));
+    document.getElementById('skillsGrid').classList.toggle('is-filtered', activeTab !== 'all');
   }
   function applySearch() {
     if (!searchQuery) { allPills.forEach(p => p.classList.remove('is-match', 'is-dim')); return; }
