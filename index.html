@@ -4,6 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Frank Dela Nutsukpuie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<style>html,body{margin:0;background:#0a0a0a;color:#ededed;}</style>
 </head>
 <body>
 <script>
@@ -22,12 +27,45 @@
   const src  = routes[path] || routes['/'];
 
   try {
-    const res  = await fetch(src);
+    const res = await fetch(src);
     if (!res.ok) throw new Error(res.status);
     const html = await res.text();
-    document.open();
-    document.write(html);
-    document.close();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    document.title = doc.title;
+
+    // Swap page-specific inline styles
+    document.querySelectorAll('style[data-page]').forEach(s => s.remove());
+    doc.querySelectorAll('head style').forEach(style => {
+      const s = document.createElement('style');
+      s.setAttribute('data-page', '');
+      s.textContent = style.textContent;
+      document.head.appendChild(s);
+    });
+
+    // Extract scripts before innerHTML swap (they won't auto-execute via innerHTML)
+    const scripts = [...doc.body.querySelectorAll('script')];
+    scripts.forEach(s => s.remove());
+
+    document.body.innerHTML = doc.body.innerHTML;
+
+    // Re-execute scripts in order, waiting for each src script to load
+    for (const old of scripts) {
+      await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        if (old.src) {
+          s.src = old.src;
+          s.onload = resolve;
+          s.onerror = reject;
+        } else {
+          s.textContent = old.textContent;
+          resolve();
+        }
+        document.body.appendChild(s);
+      });
+    }
   } catch {
     location.replace(src);
   }
