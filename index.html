@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/assets/css/main.css" />
 <style>
   html,body{margin:0;background:#0a0a0a;color:#ededed;}
-  body{transition:opacity 200ms ease;}
+  body{transition:opacity 180ms ease;}
   body.fade{opacity:0;}
 </style>
 </head>
@@ -28,6 +28,8 @@
   };
 
   function fadeIn() {
+    // Re-enable transition then remove fade so it animates in
+    document.body.style.transition = '';
     requestAnimationFrame(() => document.body.classList.remove('fade'));
   }
 
@@ -68,12 +70,16 @@
         e.preventDefault();
         const current = location.pathname.replace(/\/$/, '') || '/';
         if (path === current) return;
-        document.body.classList.add('fade');
         try {
-          const [html] = await Promise.all([
-            fetch(routes[path]).then(r => { if (!r.ok) throw r.status; return r.text(); }),
-            new Promise(r => setTimeout(r, 200)),
-          ]);
+          // Fetch first — no forced delay
+          const html = await fetch(routes[path]).then(r => {
+            if (!r.ok) throw r.status;
+            return r.text();
+          });
+          // Instant invisible swap (skip the CSS transition for the hide)
+          document.body.style.transition = 'none';
+          document.body.classList.add('fade');
+          void document.body.offsetHeight; // force paint before swap
           window.scrollTo(0, 0);
           history.pushState({}, '', path);
           await swapPage(html);
@@ -86,12 +92,33 @@
     });
   }
 
+  async function navigate(path, push) {
+    try {
+      const html = await fetch(routes[path] || routes['/']).then(r => {
+        if (!r.ok) throw r.status;
+        return r.text();
+      });
+      document.body.style.transition = 'none';
+      document.body.classList.add('fade');
+      void document.body.offsetHeight;
+      window.scrollTo(0, 0);
+      if (push) history.pushState({}, '', path);
+      await swapPage(html);
+      interceptLinks();
+      fadeIn();
+    } catch {
+      location.reload();
+    }
+  }
+
   // Initial load
   const initPath = location.pathname.replace(/\/$/, '') || '/';
   try {
-    const res = await fetch(routes[initPath] || routes['/']);
-    if (!res.ok) throw res.status;
-    await swapPage(await res.text());
+    const html = await fetch(routes[initPath] || routes['/']).then(r => {
+      if (!r.ok) throw r.status;
+      return r.text();
+    });
+    await swapPage(html);
     interceptLinks();
     fadeIn();
   } catch {
@@ -99,21 +126,9 @@
   }
 
   // Browser back / forward
-  window.addEventListener('popstate', async () => {
+  window.addEventListener('popstate', () => {
     const path = location.pathname.replace(/\/$/, '') || '/';
-    document.body.classList.add('fade');
-    try {
-      const [html] = await Promise.all([
-        fetch(routes[path] || routes['/']).then(r => { if (!r.ok) throw r.status; return r.text(); }),
-        new Promise(r => setTimeout(r, 200)),
-      ]);
-      window.scrollTo(0, 0);
-      await swapPage(html);
-      interceptLinks();
-      fadeIn();
-    } catch {
-      location.reload();
-    }
+    navigate(path, false);
   });
 })();
 </script>
