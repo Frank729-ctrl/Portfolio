@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, EmailStr
 import resend
 import os
+from html import escape
 
 app = FastAPI()
 
@@ -30,11 +31,11 @@ async def contact(form: ContactForm):
             "reply_to": form.email,
             "subject": f"[Portfolio] {form.service} — {form.name}",
             "html": f"""
-                <p><strong>Name:</strong> {form.name}</p>
-                <p><strong>Email:</strong> {form.email}</p>
-                <p><strong>Service:</strong> {form.service}</p>
+                <p><strong>Name:</strong> {escape(form.name)}</p>
+                <p><strong>Email:</strong> {escape(str(form.email))}</p>
+                <p><strong>Service:</strong> {escape(form.service)}</p>
                 <hr />
-                <p>{form.message.replace(chr(10), '<br />')}</p>
+                <p>{escape(form.message).replace(chr(10), '<br />')}</p>
             """,
         })
     except Exception as e:
