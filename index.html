@@ -18,6 +18,7 @@
 </style>
 </head>
 <body class="fade">
+<script src="/assets/js/main.js"></script>
 <script>
 (async () => {
   const routes = {
@@ -55,13 +56,14 @@
     scripts.forEach(s => s.remove());
     document.body.innerHTML = doc.body.innerHTML;
 
+    // Re-run shared setup (nav, observers, copy handlers) synchronously
+    if (window.__reinitMain) window.__reinitMain();
+
     for (const old of scripts) {
-      await new Promise((resolve, reject) => {
-        const s = document.createElement('script');
-        if (old.src) { s.src = old.src; s.onload = resolve; s.onerror = reject; }
-        else { s.textContent = `;(function(){${old.textContent}\n})();`; resolve(); }
-        document.body.appendChild(s);
-      });
+      if (old.src) continue; // external scripts handled by __reinitMain
+      const s = document.createElement('script');
+      s.textContent = `;(function(){${old.textContent}\n})();`;
+      document.body.appendChild(s);
     }
   }
 
