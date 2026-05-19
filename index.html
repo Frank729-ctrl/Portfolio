@@ -28,11 +28,8 @@
   };
 
   function fadeIn() {
-    // Pre-reveal elements already in the viewport so they don't flicker in after the body appears
-    const vh = window.innerHeight;
-    document.querySelectorAll('.reveal').forEach(el => {
-      if (el.getBoundingClientRect().top < vh) el.classList.add('is-visible');
-    });
+    // Mark all reveal elements visible immediately — the body fade-in is the page transition
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
     // Re-enable transition then remove fade so it animates in
     document.body.style.transition = '';
     requestAnimationFrame(() => document.body.classList.remove('fade'));

@@ -76,10 +76,10 @@
       </div>
 
       <div class="skill-tabs" role="toolbar" aria-label="Filter skills" id="skillTabs">
-        <button class="skill-tab" data-tab="all"        aria-pressed="false">All</button>
+        <button class="skill-tab" data-tab="all"        aria-pressed="true">All</button>
         <button class="skill-tab" data-tab="lang"       aria-pressed="false">Languages</button>
         <button class="skill-tab" data-tab="framework"  aria-pressed="false">Frameworks</button>
-        <button class="skill-tab" data-tab="sectool"    aria-pressed="true">Security Tools</button>
+        <button class="skill-tab" data-tab="sectool"    aria-pressed="false">Security Tools</button>
         <button class="skill-tab" data-tab="secconcept" aria-pressed="false">Security Concepts</button>
         <button class="skill-tab" data-tab="db"         aria-pressed="false">Databases &amp; Cloud</button>
         <button class="skill-tab" data-tab="ai"         aria-pressed="false">AI &amp; LLMs</button>
@@ -135,7 +135,7 @@
   const groups = [...document.querySelectorAll('.skills__group[data-tab]')];
   const allPills = [...document.querySelectorAll('.pill')];
   const searchEl = document.getElementById('skillSearch');
-  let activeTab = 'sectool', searchQuery = '';
+  let activeTab = 'all', searchQuery = '';
 
   function applyTabFilter() {
     groups.forEach(g => g.classList.toggle('tab-hidden', activeTab !== 'all' && g.dataset.tab !== activeTab));
