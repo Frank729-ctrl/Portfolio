@@ -8,35 +8,34 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/css/main.css" />
-<style>html,body{margin:0;background:#0a0a0a;color:#ededed;}</style>
+<style>
+  html,body{margin:0;background:#0a0a0a;color:#ededed;}
+  body{transition:opacity 200ms ease;}
+  body.fade{opacity:0;}
+</style>
 </head>
-<body>
+<body class="fade">
 <script>
 (async () => {
   const routes = {
-    '/':           '/pages/dashboard.html',
-    '/dashboard':  '/pages/dashboard.html',
-    '/about':      '/pages/about.html',
-    '/projects':   '/pages/projects.html',
-    '/skills':     '/pages/skills.html',
-    '/services':   '/pages/services.html',
-    '/contact':    '/pages/contact.html',
+    '/':          '/pages/dashboard.html',
+    '/dashboard': '/pages/dashboard.html',
+    '/about':     '/pages/about.html',
+    '/projects':  '/pages/projects.html',
+    '/skills':    '/pages/skills.html',
+    '/services':  '/pages/services.html',
+    '/contact':   '/pages/contact.html',
   };
 
-  const path = location.pathname.replace(/\/$/, '') || '/';
-  const src  = routes[path] || routes['/'];
+  function fadeIn() {
+    requestAnimationFrame(() => document.body.classList.remove('fade'));
+  }
 
-  try {
-    const res = await fetch(src);
-    if (!res.ok) throw new Error(res.status);
-    const html = await res.text();
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+  async function swapPage(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
 
     document.title = doc.title;
 
-    // Swap page-specific inline styles
     document.querySelectorAll('style[data-page]').forEach(s => s.remove());
     doc.querySelectorAll('head style').forEach(style => {
       const s = document.createElement('style');
@@ -45,30 +44,77 @@
       document.head.appendChild(s);
     });
 
-    // Extract scripts before innerHTML swap (they won't auto-execute via innerHTML)
     const scripts = [...doc.body.querySelectorAll('script')];
     scripts.forEach(s => s.remove());
-
     document.body.innerHTML = doc.body.innerHTML;
 
-    // Re-execute scripts in order, waiting for each src script to load
     for (const old of scripts) {
       await new Promise((resolve, reject) => {
         const s = document.createElement('script');
-        if (old.src) {
-          s.src = old.src;
-          s.onload = resolve;
-          s.onerror = reject;
-        } else {
-          s.textContent = old.textContent;
-          resolve();
-        }
+        if (old.src) { s.src = old.src; s.onload = resolve; s.onerror = reject; }
+        else { s.textContent = old.textContent; resolve(); }
         document.body.appendChild(s);
       });
     }
-  } catch {
-    location.replace(src);
   }
+
+  function interceptLinks() {
+    document.querySelectorAll('a[href]').forEach(a => {
+      if (a.dataset.spa) return;
+      const path = (a.getAttribute('href') || '').replace(/\/$/, '') || '/';
+      if (!(path in routes)) return;
+      a.dataset.spa = '1';
+      a.addEventListener('click', async e => {
+        e.preventDefault();
+        const current = location.pathname.replace(/\/$/, '') || '/';
+        if (path === current) return;
+        document.body.classList.add('fade');
+        try {
+          const [html] = await Promise.all([
+            fetch(routes[path]).then(r => { if (!r.ok) throw r.status; return r.text(); }),
+            new Promise(r => setTimeout(r, 200)),
+          ]);
+          window.scrollTo(0, 0);
+          history.pushState({}, '', path);
+          await swapPage(html);
+          interceptLinks();
+          fadeIn();
+        } catch {
+          location.assign(path);
+        }
+      });
+    });
+  }
+
+  // Initial load
+  const initPath = location.pathname.replace(/\/$/, '') || '/';
+  try {
+    const res = await fetch(routes[initPath] || routes['/']);
+    if (!res.ok) throw res.status;
+    await swapPage(await res.text());
+    interceptLinks();
+    fadeIn();
+  } catch {
+    location.replace(routes[initPath] || routes['/']);
+  }
+
+  // Browser back / forward
+  window.addEventListener('popstate', async () => {
+    const path = location.pathname.replace(/\/$/, '') || '/';
+    document.body.classList.add('fade');
+    try {
+      const [html] = await Promise.all([
+        fetch(routes[path] || routes['/']).then(r => { if (!r.ok) throw r.status; return r.text(); }),
+        new Promise(r => setTimeout(r, 200)),
+      ]);
+      window.scrollTo(0, 0);
+      await swapPage(html);
+      interceptLinks();
+      fadeIn();
+    } catch {
+      location.reload();
+    }
+  });
 })();
 </script>
 </body>
