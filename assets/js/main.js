@@ -114,6 +114,42 @@
       });
     }
 
+    // Lightbox
+    let lightbox = document.getElementById('__lightbox');
+    if (!lightbox) {
+      lightbox = document.createElement('div');
+      lightbox.id = '__lightbox';
+      lightbox.className = 'lightbox';
+      lightbox.innerHTML =
+        '<button class="lightbox__close" aria-label="Close image">&times;</button>' +
+        '<img class="lightbox__img" src="" alt="" />' +
+        '<span class="lightbox__caption"></span>';
+      document.body.appendChild(lightbox);
+    }
+    const lbImg     = lightbox.querySelector('.lightbox__img');
+    const lbCaption = lightbox.querySelector('.lightbox__caption');
+    const lbClose   = lightbox.querySelector('.lightbox__close');
+
+    function openLightbox(src, caption) {
+      lbImg.src = src;
+      lbCaption.textContent = caption || '';
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    if (window._lbKey) document.removeEventListener('keydown', window._lbKey);
+    window._lbKey = e => { if (e.key === 'Escape') closeLightbox(); };
+    document.addEventListener('keydown', window._lbKey);
+
+    document.querySelectorAll('.card__img[data-lightbox]').forEach(el => {
+      el.addEventListener('click', () => openLightbox(el.dataset.lightbox, el.dataset.caption || ''));
+    });
+
     // Expose to page-specific inline scripts
     window.showToast = showToast;
     window.staggerCards = staggerCards;

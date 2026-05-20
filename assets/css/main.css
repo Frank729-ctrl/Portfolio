@@ -1044,6 +1044,66 @@ footer {
 .footer__links a { transition: color 150ms ease; }
 .footer__links a:hover { color: var(--fg); }
 
+/* ─── CARD IMAGE THUMBNAIL ─── */
+.card__img {
+  position: relative;
+  width: calc(100% + 52px);
+  margin: -26px -26px 20px;
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  cursor: zoom-in;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-elev);
+}
+.card__img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 400ms ease;
+}
+.card__img:hover img { transform: scale(1.04); }
+.card__img-badge {
+  position: absolute; bottom: 9px; right: 10px;
+  background: rgba(10,10,10,0.75);
+  color: var(--fg-muted);
+  font-size: 10px; font-family: var(--font-mono);
+  padding: 3px 8px; border-radius: 4px;
+  opacity: 0; transition: opacity 150ms ease; pointer-events: none;
+}
+.card__img:hover .card__img-badge { opacity: 1; }
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 200ms ease;
+}
+.lightbox.is-open { opacity: 1; pointer-events: all; }
+.lightbox__img {
+  max-width: min(1100px, 100%); max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+  object-fit: contain;
+}
+.lightbox__caption {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 12px; color: rgba(237,237,237,0.5);
+  white-space: nowrap;
+}
+.lightbox__close {
+  position: absolute; top: 16px; right: 20px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  color: #ededed; font-size: 18px;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  transition: background 150ms ease;
+}
+.lightbox__close:hover { background: rgba(255,255,255,0.22); }
+
 /* ─── FOCUS STYLES ─── */
 a:focus-visible, button:focus-visible, .chip:focus-visible, .skill-tab:focus-visible {
   outline: 2px solid var(--accent);

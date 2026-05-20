@@ -68,29 +68,41 @@
 
       <div class="projects" id="projects-grid">
         <article class="card" data-category="security featured">
+          <div class="card__img" data-lightbox="/assets/img/hakdel.png" data-caption="HakDel — Cybersecurity Operations Platform">
+            <img src="/assets/img/hakdel.png" alt="HakDel screenshot" loading="lazy" onerror="this.closest('.card__img').style.display='none'" />
+            <span class="card__img-badge">Click to expand</span>
+          </div>
           <div class="card__top"><span class="card__cat">Cybersecurity &middot; Blue Team</span><span class="card__year">2025&ndash;26</span></div>
           <h3>HakDel</h3>
-          <p>Full-stack cybersecurity operations platform. 20-module site scanner (0&ndash;100 scored), OSINT suite, SSH CTF labs, incident tracker, CEH quiz, and AI-powered scan interpretation via Claude API with real-time SSE streaming.</p>
+          <p>Full-stack cybersecurity operations platform I designed and built end-to-end. Features a 20-module site scanner with 0&ndash;100 risk scoring, OSINT suite, SSH CTF labs, incident tracker, CEH quiz engine, and AI-powered scan analysis via Claude API with real-time SSE streaming. Deployed on Railway.</p>
           <div class="card__foot">
-            <div class="card__stack"><span>Python</span><span>FastAPI</span><span>PHP 8.1</span><span>MySQL</span><span>Railway</span></div>
+            <div class="card__stack"><span>Python</span><span>FastAPI</span><span>PHP 8.1</span><span>MySQL</span><span>Claude API</span><span>Railway</span></div>
             <a class="card__link" href="https://github.com/Frank729-ctrl/hakdel" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
           </div>
         </article>
 
         <article class="card" data-category="ai featured">
+          <div class="card__img" data-lightbox="/assets/img/delkaai.png" data-caption="DelkaAI — Multi-Provider AI Platform">
+            <img src="/assets/img/delkaai.png" alt="DelkaAI screenshot" loading="lazy" onerror="this.closest('.card__img').style.display='none'" />
+            <span class="card__img-badge">Click to expand</span>
+          </div>
           <div class="card__top"><span class="card__cat">AI &middot; API Platform</span><span class="card__year">2025&ndash;26</span></div>
           <h3>DelkaAI</h3>
-          <p>Self-hosted AI services platform with multi-provider LLM routing (Groq, Gemini, Cerebras, Ollama, NVIDIA NIM, Cohere), dual API key system, Argon2id security, and 84%+ test coverage across 126 passing tests.</p>
+          <p>Self-hosted AI services platform with multi-provider LLM routing across Groq, Gemini, Cerebras, Ollama, NVIDIA NIM, and Cohere. Built with a dual API key system (admin + developer), Argon2id password security, rate limiting, and 84%+ test coverage across 126 passing tests.</p>
           <div class="card__foot">
-            <div class="card__stack"><span>FastAPI</span><span>Groq</span><span>Gemini</span><span>Ollama</span><span>PostgreSQL</span></div>
+            <div class="card__stack"><span>FastAPI</span><span>PostgreSQL</span><span>Groq</span><span>Gemini</span><span>Ollama</span><span>Pytest</span></div>
             <a class="card__link" href="https://github.com/Frank729-ctrl" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
           </div>
         </article>
 
         <article class="card" data-category="web ai featured">
+          <div class="card__img" data-lightbox="/assets/img/snafrate.png" data-caption="Snafrate — Ghana–China Import Marketplace">
+            <img src="/assets/img/snafrate.png" alt="Snafrate screenshot" loading="lazy" onerror="this.closest('.card__img').style.display='none'" />
+            <span class="card__img-badge">Click to expand</span>
+          </div>
           <div class="card__top"><span class="card__cat">Web &middot; Marketplace</span><span class="card__year">2025&ndash;26</span></div>
           <h3>Snafrate</h3>
-          <p>Ghana&ndash;China import marketplace. Multi-role platform (buyer, supplier, admin) with escrow, Trust Score engine (0&ndash;1000), Capital Loop credits, Shorts feed, supplier subscription tiers, dispute system, and full i18n across 13 languages.</p>
+          <p>Ghana&ndash;China import marketplace I architected and built. Multi-role platform (buyer, supplier, admin) with escrow payments, a Trust Score engine (0&ndash;1000), Capital Loop credit system, Shorts-style supplier feed, subscription tiers, dispute resolution, and full i18n across 13 languages.</p>
           <div class="card__foot">
             <div class="card__stack"><span>PHP MVC</span><span>React 18</span><span>MySQL</span><span>Paystack</span><span>Airwallex</span><span>Cloudflare R2</span></div>
             <a class="card__link" href="#">Private <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
@@ -98,21 +110,29 @@
         </article>
 
         <article class="card" data-category="web featured">
+          <div class="card__img" data-lightbox="/assets/img/promex.png" data-caption="PROMEX — Promotional Exam Management System">
+            <img src="/assets/img/promex.png" alt="PROMEX screenshot" loading="lazy" onerror="this.closest('.card__img').style.display='none'" />
+            <span class="card__img-badge">Click to expand</span>
+          </div>
           <div class="card__top"><span class="card__cat">Web &middot; Gov Client</span><span class="card__year">2025</span></div>
           <h3>PROMEX</h3>
-          <p>Promotional Exam Management System for a military/government client. Four user roles, PDF result downloads, bulk CSV/Excel import, and a two-step student matching flow.</p>
+          <p>Promotional Exam Management System built for a military/government client. Handles the full exam lifecycle across four user roles — bulk CSV/Excel student import, two-step matching flow, scored result computation, and PDF result downloads via DomPDF. Private repo under NDA.</p>
           <div class="card__foot">
-            <div class="card__stack"><span>Laravel 12</span><span>Tailwind</span><span>Alpine.js</span><span>DomPDF</span></div>
-            <a class="card__link" href="#">Private <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+            <div class="card__stack"><span>Laravel 12</span><span>Tailwind</span><span>Alpine.js</span><span>MySQL</span><span>DomPDF</span></div>
+            <a class="card__link" href="#">Private &middot; NDA <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
           </div>
         </article>
 
         <article class="card" data-category="mobile featured">
+          <div class="card__img" data-lightbox="/assets/img/swypply.png" data-caption="Swypply — Automated Job Application App">
+            <img src="/assets/img/swypply.png" alt="Swypply screenshot" loading="lazy" onerror="this.closest('.card__img').style.display='none'" />
+            <span class="card__img-badge">Click to expand</span>
+          </div>
           <div class="card__top"><span class="card__cat">Mobile &middot; Ghana</span><span class="card__year">2025&ndash;26</span></div>
           <h3>Swypply</h3>
-          <p>Ghana-focused job application mobile app with a bot-first architecture. Playwright-powered scrapers handle automated job submission. Supabase/PostgreSQL backend on Railway.</p>
+          <p>Ghana-focused job application mobile app with a bot-first architecture. Playwright-powered scrapers automate job submissions across multiple platforms. Built with a Supabase/PostgreSQL backend on Railway and Zustand for local state.</p>
           <div class="card__foot">
-            <div class="card__stack"><span>React Native</span><span>Expo</span><span>Zustand</span><span>Playwright</span><span>Supabase</span></div>
+            <div class="card__stack"><span>React Native</span><span>Expo</span><span>Zustand</span><span>Playwright</span><span>Supabase</span><span>Railway</span></div>
             <a class="card__link" href="#">Private <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
           </div>
         </article>
@@ -158,9 +178,13 @@
         </article>
 
         <article class="card" data-category="web">
+          <div class="card__img" data-lightbox="/assets/img/ams.png" data-caption="Application Management System — Ghana Armed Forces Internship">
+            <img src="/assets/img/ams.png" alt="Application Management System screenshot" loading="lazy" onerror="this.closest('.card__img').style.display='none'" />
+            <span class="card__img-badge">Click to expand</span>
+          </div>
           <div class="card__top"><span class="card__cat">Web &middot; Gov / Internship</span><span class="card__year">2025</span></div>
           <h3>Application Management System</h3>
-          <p>Internal application management system built during my IT internship at the Directorate of Information Technology, Ghana Armed Forces (Burma Camp). Built independently.</p>
+          <p>Internal web system built independently during my IT internship at the Directorate of Information Technology, Ghana Armed Forces (Burma Camp). Manages the full application lifecycle — submission, tracking, and approval — for internal departmental use. Delivered as the sole developer on the project.</p>
           <div class="card__foot">
             <div class="card__stack"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span></div>
             <a class="card__link" href="https://github.com/Frank729-ctrl/application-management-system" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
